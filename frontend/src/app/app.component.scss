@@ -1,0 +1,95 @@
+.main-layout {
+	display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	height: 100vh;
+	width: 100%;
+
+	.body {
+		width: 100%;
+		height: 100%;
+		overflow: auto;
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+
+		div {
+			grid-column: span 1;
+		}
+
+		.customers-container, .services-container {
+			padding: 2rem;
+
+			h2 {
+				display: block;
+				font-size: 1.7rem;
+				margin-bottom: 1rem;
+				font-weight: 600;
+			}
+
+			.customer, .service {
+				width: 100%;
+				display: flex;
+				border: 1px solid #bcbec5;
+				padding: 1.2rem;
+				justify-content: space-between;
+				align-items: center;
+				border-radius: 0.8rem;
+				margin-bottom: 1.5rem;
+				background: #FFF;
+
+				&:hover {
+					background-color: #f5f5f5;
+				}
+
+				div {
+					display: flex;
+					align-items: center;
+					gap: 1rem;
+				}
+
+				img {
+					display: block;
+					width: 3rem;
+					border-radius: 0.6rem;
+				}
+
+				p {
+					font-size: 1.4rem;
+					font-weight: 500;
+				}
+
+				button {
+					background-color: var(--btn-background);
+					border: none;
+					padding: 0.5rem 1.2rem;
+					min-width: 8rem;
+					border-radius: 0.6rem;
+					cursor: pointer;
+					font-size: 1.4rem;
+					font-weight: 500;
+					transition: all 0.3s;
+					color: #FFF;
+
+					&:hover {
+						background-color: var(--btn-background-shade);
+					}
+				}
+			}
+		}
+
+		.customers-container {
+			--btn-background: #1849db;
+			--btn-background-shade: #13369d;
+
+			border-right: 1px solid #bcbec5;
+		}
+
+		.services-container {
+			--btn-background: #04b068;
+			--btn-background-shade: #087b4b;
+
+			background: #f1f4f6;
+		}
+	}
+
+}
