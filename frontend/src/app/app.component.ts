@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Customer } from './models/customer';
+import { Service } from './models/service';
 
 @Component({
 	selector: 'app-root',
@@ -8,12 +10,12 @@ import { Component } from '@angular/core';
 export class AppComponent {
 	title = 'frontend';
 
-	customers: any[] = new Array(5);
-	services: any[] = new Array(5);
+	customers: Customer[] = new Array(5);
+	services: Service[] = new Array(5);
 
-	selectedCustomer: any = null;
+	selectedCustomer: Customer | null = null;
 
 	selectCustomer(customer: any) {
-		this.selectedCustomer = customer ?? 1;
+		this.selectedCustomer = customer ?? { id: 0, name: '', email: '', phone: ''};
 	}
 }
