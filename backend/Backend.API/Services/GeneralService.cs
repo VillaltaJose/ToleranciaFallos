@@ -22,7 +22,7 @@ namespace Backend.API.Services
         private static async Task<T> ExecuteWithRetry<T>(Func<Task<T>> operation)
         {
             int retries = 3;
-            int delay = 1000;
+            int delay = 1500;
 
             for (int i = 0; i < retries; i++)
             {
@@ -32,13 +32,16 @@ namespace Backend.API.Services
                 }
                 catch (Exception)
                 {
+                    Console.WriteLine($"Failed attempt #{i + 1}");
+
                     if (i == retries - 1)
                     {
                         throw;
                     }
 
+                    Console.WriteLine("Waiting for retry...");
                     await Task.Delay(delay);
-                    delay += 1000;
+                    delay *= 2;
                 }
             }
 
