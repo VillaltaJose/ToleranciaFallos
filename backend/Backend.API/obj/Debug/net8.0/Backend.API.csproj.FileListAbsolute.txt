@@ -31,3 +31,6 @@
 /Users/josevillalta/dev/Git/Personal/ToleranciaFallos/backend/Backend.API/obj/Debug/net8.0/Backend.API.pdb
 /Users/josevillalta/dev/Git/Personal/ToleranciaFallos/backend/Backend.API/obj/Debug/net8.0/Backend.API.genruntimeconfig.cache
 /Users/josevillalta/dev/Git/Personal/ToleranciaFallos/backend/Backend.API/obj/Debug/net8.0/ref/Backend.API.dll
+/Users/josevillalta/dev/Git/Personal/ToleranciaFallos/backend/Backend.API/bin/Debug/net8.0/RabbitMQ.Client.dll
+/Users/josevillalta/dev/Git/Personal/ToleranciaFallos/backend/Backend.API/bin/Debug/net8.0/Npgsql.dll
+/Users/josevillalta/dev/Git/Personal/ToleranciaFallos/backend/Backend.API/bin/Debug/net8.0/Dapper.dll

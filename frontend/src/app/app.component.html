@@ -23,11 +23,11 @@
 				<ng-container *ngFor="let s of services">
 					<div class="service">
 						<div>
-							<img [src]="'https://api.dicebear.com/8.x/thumbs/svg?seed=' + s.name">
+							<img [src]="'https://api.dicebear.com/9.x/icons/svg?seed=' + s.name">
 							<p>{{ s.name }}</p>
 						</div>
 
-						<button>Pay {{ s.price | currency }}</button>
+						<button (click)="payInvoice(s)">Pay {{ s.price | currency }}</button>
 					</div>
 				</ng-container>
 			</ng-container>

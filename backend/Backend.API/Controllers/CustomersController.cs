@@ -1,4 +1,5 @@
 using Backend.API.Entities;
+using Backend.API.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Backend.API.Controllers;
@@ -7,12 +8,18 @@ namespace Backend.API.Controllers;
 [Route("api/[controller]")]
 public class CustomersController : ControllerBase
 {
+    private readonly GeneralService _generalService;
+
+    public CustomersController(
+        GeneralService generalService
+    )
+    {
+        _generalService = generalService;
+    }
+
     [HttpGet]
     public async Task<IActionResult> GetAll() {
-        var customers = new List<Customer> {
-            new() { Id = 1, Name = "John Doe" },
-            new() { Id = 2, Name = "Dann Brown" }
-        };
+        var customers = await _generalService.GetCustomers();
 
         return Ok(customers);
     }

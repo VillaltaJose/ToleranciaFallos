@@ -1,9 +1,19 @@
-﻿var builder = WebApplication.CreateBuilder(args);
+﻿using Backend.API.Entities;
+using System.Data;
+using Backend.API.Services;
+using Microsoft.Extensions.Configuration;
+using Npgsql;
 
-// Add services to the container.
+var builder = WebApplication.CreateBuilder(args);
+
+string connectionString = builder.Configuration.GetConnectionString("Default")!;
+builder.Services.AddTransient<IDbConnection>((pgc) => new NpgsqlConnection(connectionString));
+
+builder.Services.AddTransient(sp => new RabbitMQService(builder.Configuration.GetValue<string>("RabbitMQ")!));
+builder.Services.AddTransient<GeneralService>();
 
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
