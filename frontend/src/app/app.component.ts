@@ -3,6 +3,7 @@ import { Customer } from './models/customer';
 import { Service } from './models/service';
 import { GeneralService } from './services/general.service';
 import { Invoice } from './models/invoice';
+import { finalize } from 'rxjs';
 
 @Component({
 	selector: 'app-root',
@@ -15,6 +16,12 @@ export class AppComponent implements OnInit {
 	customers: Customer[] = [];
 	services: Service[] = [];
 
+	loadings = {
+		payment: false,
+		services: false,
+	};
+
+	error: string | null = null;
 	selectedCustomer: Customer | null = null;
 
 	constructor(
@@ -48,6 +55,9 @@ export class AppComponent implements OnInit {
 	payInvoice(service: Service) {
 		if (!this.selectedCustomer) return;
 
+		this.loadings.payment = true;
+		this.error = null;
+
 		const invoice: Invoice = {
 			amount: service.price,
 			customerId: this.selectedCustomer!.id,
@@ -55,8 +65,12 @@ export class AppComponent implements OnInit {
 		};
 
 		this._service.payInvoice(invoice)
+		.pipe(finalize(() => this.loadings.payment = false))
 		.subscribe(() => {
 			this.selectCustomer(this.selectedCustomer!);
+		}, (error) => {
+			console.log(error);
+			this.error = error.body ?? JSON.stringify(error);
 		});
 	}
 }

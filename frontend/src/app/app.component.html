@@ -20,6 +20,13 @@
 		<div class="services-container">
 			<ng-container *ngIf="selectedCustomer">
 				<h2>Available services</h2>
+
+				<ng-container *ngIf="error">
+					<div class="error-container">
+						<p>{{ error }}</p>
+					</div>
+				</ng-container>
+
 				<ng-container *ngFor="let s of services">
 					<div class="service">
 						<div>
@@ -27,7 +34,11 @@
 							<p>{{ s.name }}</p>
 						</div>
 
-						<button (click)="payInvoice(s)">Pay {{ s.price | currency }}</button>
+						<button (click)="payInvoice(s)" style="min-width: 110px;" class="text-center">
+							<ng-container *ngIf="!loadings.payment; else tmpLoading">
+								Pay {{ s.price | currency }}
+							</ng-container>
+						</button>
 					</div>
 				</ng-container>
 			</ng-container>
@@ -35,3 +46,7 @@
 
 	</div>
 </div>
+
+<ng-template #tmpLoading>
+	<img src="https://media.tenor.com/_62bXB8gnzoAAAAi/loading.gif" style="display: block; margin: 0 auto; width: 20px;">
+</ng-template>

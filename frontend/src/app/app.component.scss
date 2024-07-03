@@ -26,6 +26,23 @@
 				font-weight: 600;
 			}
 
+			.error-container {
+				width: 100%;
+				background: #ffe4ef;
+				margin-bottom: 20px;
+				padding: 1.2rem 2rem;
+				border-radius: 0.8rem;
+				margin-bottom: 1.5rem;
+				border: 1px solid #ad2936;
+
+				p {
+					display: block;
+					margin: 0;
+					font-size: 1.4rem;
+					color: #890d1b;
+				}
+			}
+
 			.customer, .service {
 				width: 100%;
 				display: flex;
