@@ -1,7 +1,7 @@
 export interface Invoice {
-	Id: number;
-	CustomerId: number;
-	ServiceId: number;
-	Amount: number;
-	CreatedAt: Date | string;
+	id: number;
+	customerId: number;
+	serviceId: number;
+	amount: number;
+	createdAt: Date | string;
 }

@@ -8,8 +8,8 @@
 			<ng-container *ngFor="let c of customers">
 				<div class="customer">
 					<div>
-						<img [src]="'https://api.dicebear.com/8.x/thumbs/svg?seed=' + c">
-						<p>{{ 'Customer name' }}</p>
+						<img [src]="'https://api.dicebear.com/8.x/thumbs/svg?seed=' + c.name">
+						<p>{{ c.name }}</p>
 					</div>
 
 					<button (click)="selectCustomer(c)">Select</button>
@@ -23,11 +23,11 @@
 				<ng-container *ngFor="let s of services">
 					<div class="service">
 						<div>
-							<img [src]="'https://api.dicebear.com/8.x/thumbs/svg?seed=' + s">
-							<p>{{ 'Service name' }}</p>
+							<img [src]="'https://api.dicebear.com/8.x/thumbs/svg?seed=' + s.name">
+							<p>{{ s.name }}</p>
 						</div>
 
-						<button>Pay service</button>
+						<button>Pay {{ s.price | currency }}</button>
 					</div>
 				</ng-container>
 			</ng-container>

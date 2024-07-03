@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "bxuvbbI+00YRNSK3acBWwJyuVny+KdNkEN/Y/eOR+cQuwHg4/izDixT4wonrTGoZEAMECO4l5Q+c7cAJ4urbkg==",
+  "dgSpecHash": "X3ConHA96cM=",
   "success": true,
   "projectFilePath": "/Users/josevillalta/dev/Git/Personal/ToleranciaFallos/backend/Backend.API/Backend.API.csproj",
   "expectedPackageFiles": [
@@ -11,12 +11,5 @@
     "/Users/josevillalta/.nuget/packages/swashbuckle.aspnetcore.swaggergen/6.4.0/swashbuckle.aspnetcore.swaggergen.6.4.0.nupkg.sha512",
     "/Users/josevillalta/.nuget/packages/swashbuckle.aspnetcore.swaggerui/6.4.0/swashbuckle.aspnetcore.swaggerui.6.4.0.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "NU1803",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "You are running the 'restore' operation with an 'HTTP' source, 'http://192.168.100.250:9011/api/v3/index.json'. Non-HTTPS access will be removed in a future version. Consider migrating to an 'HTTPS' source."
-    }
-  ]
+  "logs": []
 }
