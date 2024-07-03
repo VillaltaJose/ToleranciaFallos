@@ -7,6 +7,12 @@
 			return @"select id, name, email from customers";
 		}
 
+        public static string GetCustomer()
+        {
+            return @"select id, name, email from customers
+                    where id = :id";
+        }
+
         public static string GetServices()
         {
             return @"SELECT s.id, s.name, s.price
@@ -14,6 +20,13 @@
                     LEFT JOIN invoices i on
                     s.id = i.service_id AND i.customer_id = :customerId
                     WHERE i.id IS NULL;";
+        }
+
+        public static string GetService()
+        {
+            return @"SELECT s.id, s.name, s.price
+                    FROM services s
+                    where s.id = :id";
         }
 
         public static string PayInvoice()
@@ -31,7 +44,7 @@
                     :ServiceId,
                     :Amount,
                     now()
-                    )";
+                    ) returning id";
         }
     }
 }
